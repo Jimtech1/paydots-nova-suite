@@ -1,26 +1,40 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Navbar } from "@/components/site/Navbar";
+import { HeroSlider } from "@/components/site/HeroSlider";
+import { Features } from "@/components/site/Features";
+import { HowItWorks } from "@/components/site/HowItWorks";
+import { InvestmentPartner } from "@/components/site/InvestmentPartner";
+import { Stats } from "@/components/site/Stats";
+import { Testimonials } from "@/components/site/Testimonials";
+import { Waitlist } from "@/components/site/Waitlist";
+import { Footer } from "@/components/site/Footer";
 
 export const Route = createFileRoute("/")({
   component: Index,
+  head: () => ({
+    meta: [
+      { title: "Paydots — The Stellar Financial Ecosystem" },
+      { name: "description", content: "Spend, invest, accept payments, and earn yield in one secure custodian wallet. Powered by Stellar and a licensed portfolio manager." },
+      { property: "og:title", content: "Paydots — The Stellar Financial Ecosystem" },
+      { property: "og:description", content: "Custodian wallet, virtual cards, cross-border payments and institutional-grade investments — built on Stellar." },
+    ],
+  }),
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
+function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen">
+      <Navbar />
+      <main>
+        <HeroSlider />
+        <Features />
+        <HowItWorks />
+        <InvestmentPartner />
+        <Stats />
+        <Testimonials />
+        <Waitlist />
+      </main>
+      <Footer />
     </div>
   );
-}
-
-function Index() {
-  return <PlaceholderIndex />;
 }
