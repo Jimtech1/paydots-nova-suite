@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
+import heroPerson from "@/assets/hero-person.jpg";
 import slideWallet from "@/assets/slide-wallet.jpg";
 import slideCard from "@/assets/slide-card.jpg";
 import slideInvest from "@/assets/slide-invest.jpg";
@@ -39,26 +40,51 @@ export function HeroSlider() {
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-background/60 to-background" />
 
       <div className="mx-auto max-w-6xl px-4">
-        <div className="text-center max-w-3xl mx-auto animate-fade-up">
-          <div className="inline-flex items-center gap-2 glass rounded-full px-3 py-1 text-xs text-muted-foreground mb-6">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent animate-glow-pulse" />
-            Powered by the Stellar Network
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="text-center lg:text-left max-w-2xl mx-auto lg:mx-0 animate-fade-up">
+            <div className="inline-flex items-center gap-2 glass rounded-full px-3 py-1 text-xs text-muted-foreground mb-6">
+              <span className="h-1.5 w-1.5 rounded-full bg-accent animate-glow-pulse" />
+              Powered by the Stellar Network
+            </div>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-[1.02] tracking-tighter">
+              Your financial<br />
+              super-app, <span className="text-gradient">Paydots</span>
+            </h1>
+            <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 leading-relaxed">
+              Earn yield, spend anywhere, move instantly.
+            </p>
+            <div className="mt-8 flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-3">
+              <a href="#waitlist" className="bg-gradient-vivid text-primary-foreground font-semibold px-7 py-3.5 rounded-xl shadow-glow hover:scale-[1.02] transition">
+                Create account
+              </a>
+              <a href="#features" className="glass px-7 py-3.5 rounded-xl text-sm font-semibold hover:bg-accent/10 transition">
+                Explore features
+              </a>
+            </div>
           </div>
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold leading-[1.05]">
-            The Stellar Financial<br />
-            Ecosystem — <span className="text-gradient">Paydots</span>
-          </h1>
-          <p className="mt-6 text-lg text-muted-foreground max-w-2xl mx-auto">
-            Spend, invest, accept payments, and earn yield — all in one secure custodian wallet.
-            Powered by Stellar and a licensed portfolio manager.
-          </p>
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a href="#waitlist" className="bg-gradient-vivid text-primary-foreground font-semibold px-6 py-3 rounded-xl shadow-glow hover:scale-[1.02] transition">
-              Create account
-            </a>
-            <a href="#features" className="glass px-6 py-3 rounded-xl text-sm font-medium hover:bg-accent/10 transition">
-              Explore features
-            </a>
+
+          <div className="relative animate-fade-up">
+            <div className="absolute -inset-8 bg-gradient-glow blur-3xl" />
+            <div className="relative glass-strong rounded-3xl p-3 shadow-card neon-border overflow-hidden">
+              <img
+                src={heroPerson}
+                alt="Paydots customer using the financial super-app"
+                width={1024}
+                height={1280}
+                className="rounded-2xl w-full h-[480px] md:h-[560px] object-cover"
+              />
+              <div className="absolute bottom-6 left-6 right-6 glass-strong rounded-2xl p-4 flex items-center gap-4">
+                <div className="h-10 w-10 rounded-xl bg-gradient-vivid grid place-items-center shadow-neon text-primary-foreground font-bold">P</div>
+                <div className="flex-1">
+                  <div className="text-xs text-muted-foreground">Total balance</div>
+                  <div className="font-bold text-lg">$12,480.55</div>
+                </div>
+                <div className="text-right">
+                  <div className="text-xs text-accent font-semibold">+18.4% APY</div>
+                  <div className="text-[10px] text-muted-foreground">Yield earning</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 

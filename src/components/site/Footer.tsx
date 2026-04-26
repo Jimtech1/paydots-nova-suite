@@ -3,7 +3,7 @@ import logo from "@/assets/paydots-logo.png";
 
 export function Footer() {
   return (
-    <footer className="py-12 border-t border-white/5">
+    <footer className="py-12 border-t border-border">
       <div className="mx-auto max-w-6xl px-4 grid md:grid-cols-4 gap-8">
         <div className="md:col-span-2">
           <div className="flex items-center gap-2">
@@ -32,7 +32,7 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <div className="mx-auto max-w-6xl px-4 mt-10 pt-6 border-t border-white/5 text-xs text-muted-foreground text-center">
+      <div className="mx-auto max-w-6xl px-4 mt-10 pt-6 border-t border-border text-xs text-muted-foreground text-center">
         © 2026 Paydots — Built on Stellar. Investments via a licensed portfolio manager (SEC-registered).
       </div>
     </footer>
