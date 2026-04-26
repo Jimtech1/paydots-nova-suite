@@ -56,7 +56,7 @@ export function HeroSlider() {
             <a href="#waitlist" className="bg-gradient-vivid text-primary-foreground font-semibold px-6 py-3 rounded-xl shadow-glow hover:scale-[1.02] transition">
               Create account
             </a>
-            <a href="#features" className="glass px-6 py-3 rounded-xl text-sm font-medium hover:bg-white/5 transition">
+            <a href="#features" className="glass px-6 py-3 rounded-xl text-sm font-medium hover:bg-accent/10 transition">
               Explore features
             </a>
           </div>
@@ -90,7 +90,7 @@ export function HeroSlider() {
                   key={i}
                   aria-label={`Slide ${i + 1}`}
                   onClick={() => setActive(i)}
-                  className={`h-1.5 rounded-full transition-all ${i === active ? "w-10 bg-gradient-vivid" : "w-4 bg-white/20"}`}
+                  className={`h-1.5 rounded-full transition-all ${i === active ? "w-10 bg-gradient-vivid" : "w-4 bg-muted-foreground/30"}`}
                 />
               ))}
             </div>
