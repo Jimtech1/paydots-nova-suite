@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import logo from "@/assets/paydots-logo.png";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export function Navbar() {
   return (
@@ -16,14 +17,18 @@ export function Navbar() {
             <a href="#invest" className="hover:text-foreground transition">Investments</a>
             <a href="#stats" className="hover:text-foreground transition">Network</a>
           </nav>
-          <a
-            href="#waitlist"
-            className="bg-gradient-vivid text-primary-foreground text-sm font-semibold px-4 py-2 rounded-xl shadow-neon hover:opacity-90 transition"
-          >
-            Create account
-          </a>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <a
+              href="#waitlist"
+              className="bg-gradient-vivid text-primary-foreground text-sm font-semibold px-4 py-2 rounded-xl shadow-neon hover:opacity-90 transition"
+            >
+              Create account
+            </a>
+          </div>
         </div>
       </div>
     </header>
   );
 }
+
