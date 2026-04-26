@@ -33,7 +33,7 @@
   --color-cyan: var(--cyan);
   --color-purple: var(--purple);
   --color-neon: var(--neon);
-  --font-display: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Plus Jakarta Sans", system-ui, sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
   --animate-fade-up: fade-up 0.8s ease-out;
   --animate-float: float 6s ease-in-out infinite;
@@ -59,44 +59,44 @@
 }
 
 :root {
-  --radius: 0.875rem;
-  /* Light theme (default) */
-  --background: oklch(0.99 0.005 240);
-  --foreground: oklch(0.18 0.03 260);
-  --card: oklch(1 0 0 / 0.7);
-  --card-foreground: oklch(0.18 0.03 260);
+  --radius: 1rem;
+  /* Light theme — refined editorial */
+  --background: oklch(0.985 0.006 250);
+  --foreground: oklch(0.15 0.04 265);
+  --card: oklch(1 0 0 / 0.85);
+  --card-foreground: oklch(0.15 0.04 265);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.03 260);
-  --primary: oklch(0.55 0.22 260);
+  --popover-foreground: oklch(0.15 0.04 265);
+  --primary: oklch(0.48 0.24 265);
   --primary-foreground: oklch(0.99 0.005 240);
-  --secondary: oklch(0.95 0.01 260);
-  --secondary-foreground: oklch(0.18 0.03 260);
-  --muted: oklch(0.95 0.01 260);
-  --muted-foreground: oklch(0.45 0.02 260);
-  --accent: oklch(0.6 0.18 220);
+  --secondary: oklch(0.96 0.012 260);
+  --secondary-foreground: oklch(0.15 0.04 265);
+  --muted: oklch(0.94 0.012 260);
+  --muted-foreground: oklch(0.42 0.03 260);
+  --accent: oklch(0.52 0.2 220);
   --accent-foreground: oklch(0.99 0.005 240);
   --destructive: oklch(0.6 0.22 25);
   --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.18 0.03 260 / 0.1);
-  --input: oklch(0.18 0.03 260 / 0.1);
-  --ring: oklch(0.6 0.18 220);
+  --border: oklch(0.15 0.04 265 / 0.1);
+  --input: oklch(0.15 0.04 265 / 0.1);
+  --ring: oklch(0.52 0.2 220);
 
-  --cyan: oklch(0.55 0.18 220);
-  --purple: oklch(0.5 0.24 295);
-  --neon: oklch(0.55 0.22 260);
+  --cyan: oklch(0.52 0.2 220);
+  --purple: oklch(0.48 0.26 295);
+  --neon: oklch(0.48 0.24 265);
 
-  --gradient-primary: linear-gradient(135deg, oklch(0.5 0.24 265), oklch(0.55 0.18 220));
-  --gradient-vivid: linear-gradient(135deg, oklch(0.5 0.24 265) 0%, oklch(0.55 0.2 230) 50%, oklch(0.5 0.24 295) 100%);
-  --gradient-glow: radial-gradient(ellipse at center, oklch(0.55 0.22 260 / 0.18), transparent 70%);
-  --gradient-card: linear-gradient(140deg, oklch(1 0 0 / 0.9), oklch(0.98 0.01 260 / 0.75));
-  --shadow-glow: 0 0 40px oklch(0.55 0.22 260 / 0.18), 0 0 80px oklch(0.55 0.18 220 / 0.12);
-  --shadow-card: 0 20px 60px -20px oklch(0.4 0.05 260 / 0.18);
-  --shadow-neon: 0 0 20px oklch(0.55 0.22 260 / 0.3);
+  --gradient-primary: linear-gradient(135deg, oklch(0.48 0.24 265), oklch(0.52 0.2 220));
+  --gradient-vivid: linear-gradient(135deg, oklch(0.48 0.26 270) 0%, oklch(0.52 0.2 220) 50%, oklch(0.48 0.26 295) 100%);
+  --gradient-glow: radial-gradient(ellipse at center, oklch(0.48 0.24 265 / 0.18), transparent 70%);
+  --gradient-card: linear-gradient(140deg, oklch(1 0 0 / 0.95), oklch(0.97 0.012 260 / 0.8));
+  --shadow-glow: 0 10px 40px -10px oklch(0.48 0.24 265 / 0.25), 0 0 80px oklch(0.52 0.2 220 / 0.12);
+  --shadow-card: 0 20px 60px -20px oklch(0.3 0.06 265 / 0.22);
+  --shadow-neon: 0 8px 24px -6px oklch(0.48 0.24 265 / 0.4);
 
-  --glass-bg: oklch(1 0 0 / 0.7);
-  --glass-strong-bg: oklch(1 0 0 / 0.85);
-  --glass-border: oklch(0.18 0.03 260 / 0.08);
-  --grid-line: oklch(0.18 0.03 260 / 0.06);
+  --glass-bg: oklch(1 0 0 / 0.75);
+  --glass-strong-bg: oklch(1 0 0 / 0.9);
+  --glass-border: oklch(0.15 0.04 265 / 0.1);
+  --grid-line: oklch(0.15 0.04 265 / 0.06);
 }
 
 .dark {
@@ -153,7 +153,12 @@
       radial-gradient(ellipse 60% 40% at 10% 60%, color-mix(in oklab, var(--accent) 12%, transparent), transparent);
     background-attachment: fixed;
   }
-  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.035em;
+    font-weight: 700;
+  }
+  h1 { font-weight: 800; letter-spacing: -0.045em; }
 }
 
 @layer utilities {

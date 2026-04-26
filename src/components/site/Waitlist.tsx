@@ -12,11 +12,11 @@ export function Waitlist() {
         <div className="glass-strong rounded-3xl p-10 md:p-14 text-center neon-border relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-glow opacity-50" />
           <div className="relative">
-            <h2 className="text-3xl md:text-5xl font-bold leading-tight">
-              The financial ecosystem is coming.<br />
-              <span className="text-gradient">Secure your early access.</span>
+            <h2 className="text-4xl md:text-6xl font-extrabold leading-[1.05] tracking-tighter">
+              The future of finance is<br />
+              <span className="text-gradient">one click away.</span>
             </h2>
-            <p className="mt-4 text-muted-foreground">Join the waitlist and be first to spend, send, and invest with Paydots.</p>
+            <p className="mt-5 text-muted-foreground text-lg">Join the waitlist and be first to spend, send, and invest with Paydots.</p>
 
             {done ? (
               <div className="mt-8 glass rounded-2xl p-6 inline-block">
