@@ -4,7 +4,7 @@ import dashboard from "@/assets/dashboard-preview.jpg";
 const features = [
   { icon: Coins, title: "Multi-Currency Custodian Wallet", desc: "Hold NGN, USDC, EUR, GBP, and stablecoins. Instant swaps via Stellar DEX. Paydots securely manages your funds." },
   { icon: CreditCard, title: "Virtual & Physical Cards", desc: "Issue virtual cards instantly or order a physical card. Spend your balance anywhere Visa is accepted." },
-  { icon: Globe, title: "Cross-Border Payments", desc: "Send money across 40+ countries with near-zero fees (0.1%). Powered by Stellar's fast settlement." },
+  { icon: Globe, title: "Cross-Border Payments", desc: "Send and receive money across different countries with near-zero fees (0.1%). Powered by Stellar's fast settlement." },
   { icon: TrendingUp, title: "Yield & Investment Plans", desc: "Invest in T-Bills, real estate, and fixed-dollar products through a licensed portfolio manager. Up to 18% APY." },
   { icon: Store, title: "Merchant Tools", desc: "Payment links, QR codes, invoices, and APIs. Settle in stablecoins or local currency." },
   { icon: Users, title: "Agent & Referral System", desc: "Earn commissions on deposits, withdrawals, and transactions. Build your own agent network." },
