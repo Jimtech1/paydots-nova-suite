@@ -1,4 +1,4 @@
-import { Coins, CreditCard, Globe, TrendingUp, Store, Users } from "lucide-react";
+import { Coins, CreditCard, Globe, TrendingUp, Store, Users, Landmark, Send } from "lucide-react";
 import dashboard from "@/assets/dashboard-preview.jpg";
 
 const features = [
@@ -8,6 +8,8 @@ const features = [
   { icon: TrendingUp, title: "Yield & Investment Plans", desc: "Invest in T-Bills, real estate, and fixed-dollar products through a licensed portfolio manager. Up to 18% APY." },
   { icon: Store, title: "Merchant Tools", desc: "Payment links, QR codes, invoices, and APIs. Settle in stablecoins or local currency." },
   { icon: Users, title: "Agent & Referral System", desc: "Earn commissions on deposits, withdrawals, and transactions. Build your own agent network." },
+  { icon: Landmark, title: "USD Receivable Account", desc: "Get a real US bank account number. Receive payments from clients, marketplaces, and freelancing platforms directly — no middlemen. Hold, convert, or spend your USD balance instantly." },
+  { icon: Send, title: "Instant Peer-to-Peer Transfers", desc: "Send money instantly to any other Paydots user using just their email, phone number, or username. No fees, no delays — perfect for splitting bills, paying friends, or settling debts." },
 ];
 
 export function Features() {
