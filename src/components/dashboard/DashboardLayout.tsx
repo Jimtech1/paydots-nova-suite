@@ -11,6 +11,8 @@ import {
   X,
   Bell,
   ChevronDown,
+  TrendingUp,
+  Send,
 } from "lucide-react";
 import { useState } from "react";
 import logo from "@/assets/paydots-logo.png";
@@ -21,6 +23,8 @@ import { Footer } from "@/components/site/Footer";
 const nav = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { to: "/dashboard/wallet", label: "Wallet", icon: Wallet },
+  { to: "/dashboard/send", label: "Send & Convert", icon: Send },
+  { to: "/dashboard/investments", label: "Investments", icon: TrendingUp },
   { to: "/dashboard/transactions", label: "Transactions", icon: ArrowLeftRight },
   { to: "/dashboard/cards", label: "Cards / Payouts", icon: CreditCard },
   { to: "/dashboard/analytics", label: "Analytics", icon: BarChart3 },
