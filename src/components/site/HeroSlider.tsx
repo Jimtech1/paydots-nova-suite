@@ -77,7 +77,7 @@ export function HeroSlider() {
               <div className="absolute bottom-6 left-6 right-6 glass-strong rounded-2xl p-4 flex items-center gap-4">
                 <div className="h-10 w-10 rounded-xl bg-gradient-vivid grid place-items-center shadow-neon text-primary-foreground font-bold">P</div>
                 <div className="flex-1">
-                  <div className="text-xs text-muted-foreground">Total balance</div>
+                  <div className="text-xs text-muted-foreground flex items-center gap-1.5"><span className="text-base leading-none">🇺🇸</span> USD balance</div>
                   <div className="font-bold text-lg">$12,480.55</div>
                 </div>
                 <div className="text-right">
