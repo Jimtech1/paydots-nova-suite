@@ -19,6 +19,12 @@ export function Navbar() {
           </nav>
           <div className="flex items-center gap-2">
             <ThemeToggle />
+            <Link
+              to="/dashboard"
+              className="hidden sm:inline-flex items-center text-sm font-semibold px-3 py-2 rounded-xl glass hover:bg-accent/10 transition"
+            >
+              Dashboard
+            </Link>
             <a
               href="#waitlist"
               className="bg-gradient-vivid text-primary-foreground text-sm font-semibold px-4 py-2 rounded-xl shadow-neon hover:opacity-90 transition"
