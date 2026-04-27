@@ -113,7 +113,7 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
 
 function MobileBottomNav() {
   const loc = useLocation();
-  const items = nav.slice(0, 5);
+  const items = [nav[0], nav[1], nav[2], nav[3], nav[4]];
   return (
     <nav className="lg:hidden fixed bottom-0 inset-x-0 z-40 glass-strong border-t border-border">
       <div className="grid grid-cols-5">
