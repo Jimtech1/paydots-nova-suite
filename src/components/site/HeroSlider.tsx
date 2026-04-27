@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import heroBg from "@/assets/hero-bg.jpg";
 import heroPerson from "@/assets/hero-person.jpg";
 import slideWallet from "@/assets/slide-wallet.jpg";
@@ -54,9 +55,9 @@ export function HeroSlider() {
               Earn yield, spend anywhere, move instantly.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-3">
-              <a href="#waitlist" className="bg-gradient-vivid text-primary-foreground font-semibold px-7 py-3.5 rounded-xl shadow-glow hover:scale-[1.02] transition">
+              <Link to="/dashboard" className="bg-gradient-vivid text-primary-foreground font-semibold px-7 py-3.5 rounded-xl shadow-glow hover:scale-[1.02] transition">
                 Create account
-              </a>
+              </Link>
               <a href="#features" className="glass px-7 py-3.5 rounded-xl text-sm font-semibold hover:bg-accent/10 transition">
                 Explore features
               </a>
@@ -76,7 +77,7 @@ export function HeroSlider() {
               <div className="absolute bottom-6 left-6 right-6 glass-strong rounded-2xl p-4 flex items-center gap-4">
                 <div className="h-10 w-10 rounded-xl bg-gradient-vivid grid place-items-center shadow-neon text-primary-foreground font-bold">P</div>
                 <div className="flex-1">
-                  <div className="text-xs text-muted-foreground">Total balance</div>
+                  <div className="text-xs text-muted-foreground flex items-center gap-1.5"><span className="text-base leading-none">🇺🇸</span> USD balance</div>
                   <div className="font-bold text-lg">$12,480.55</div>
                 </div>
                 <div className="text-right">

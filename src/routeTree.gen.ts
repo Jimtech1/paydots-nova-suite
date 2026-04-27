@@ -16,6 +16,8 @@ import { Route as DashboardWalletRouteImport } from './routes/dashboard.wallet'
 import { Route as DashboardTransactionsRouteImport } from './routes/dashboard.transactions'
 import { Route as DashboardSupportRouteImport } from './routes/dashboard.support'
 import { Route as DashboardSettingsRouteImport } from './routes/dashboard.settings'
+import { Route as DashboardSendRouteImport } from './routes/dashboard.send'
+import { Route as DashboardInvestmentsRouteImport } from './routes/dashboard.investments'
 import { Route as DashboardCardsRouteImport } from './routes/dashboard.cards'
 import { Route as DashboardAnalyticsRouteImport } from './routes/dashboard.analytics'
 
@@ -54,6 +56,16 @@ const DashboardSettingsRoute = DashboardSettingsRouteImport.update({
   path: '/settings',
   getParentRoute: () => DashboardRoute,
 } as any)
+const DashboardSendRoute = DashboardSendRouteImport.update({
+  id: '/send',
+  path: '/send',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardInvestmentsRoute = DashboardInvestmentsRouteImport.update({
+  id: '/investments',
+  path: '/investments',
+  getParentRoute: () => DashboardRoute,
+} as any)
 const DashboardCardsRoute = DashboardCardsRouteImport.update({
   id: '/cards',
   path: '/cards',
@@ -70,6 +82,8 @@ export interface FileRoutesByFullPath {
   '/dashboard': typeof DashboardRouteWithChildren
   '/dashboard/analytics': typeof DashboardAnalyticsRoute
   '/dashboard/cards': typeof DashboardCardsRoute
+  '/dashboard/investments': typeof DashboardInvestmentsRoute
+  '/dashboard/send': typeof DashboardSendRoute
   '/dashboard/settings': typeof DashboardSettingsRoute
   '/dashboard/support': typeof DashboardSupportRoute
   '/dashboard/transactions': typeof DashboardTransactionsRoute
@@ -80,6 +94,8 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dashboard/analytics': typeof DashboardAnalyticsRoute
   '/dashboard/cards': typeof DashboardCardsRoute
+  '/dashboard/investments': typeof DashboardInvestmentsRoute
+  '/dashboard/send': typeof DashboardSendRoute
   '/dashboard/settings': typeof DashboardSettingsRoute
   '/dashboard/support': typeof DashboardSupportRoute
   '/dashboard/transactions': typeof DashboardTransactionsRoute
@@ -92,6 +108,8 @@ export interface FileRoutesById {
   '/dashboard': typeof DashboardRouteWithChildren
   '/dashboard/analytics': typeof DashboardAnalyticsRoute
   '/dashboard/cards': typeof DashboardCardsRoute
+  '/dashboard/investments': typeof DashboardInvestmentsRoute
+  '/dashboard/send': typeof DashboardSendRoute
   '/dashboard/settings': typeof DashboardSettingsRoute
   '/dashboard/support': typeof DashboardSupportRoute
   '/dashboard/transactions': typeof DashboardTransactionsRoute
@@ -105,6 +123,8 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/dashboard/analytics'
     | '/dashboard/cards'
+    | '/dashboard/investments'
+    | '/dashboard/send'
     | '/dashboard/settings'
     | '/dashboard/support'
     | '/dashboard/transactions'
@@ -115,6 +135,8 @@ export interface FileRouteTypes {
     | '/'
     | '/dashboard/analytics'
     | '/dashboard/cards'
+    | '/dashboard/investments'
+    | '/dashboard/send'
     | '/dashboard/settings'
     | '/dashboard/support'
     | '/dashboard/transactions'
@@ -126,6 +148,8 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/dashboard/analytics'
     | '/dashboard/cards'
+    | '/dashboard/investments'
+    | '/dashboard/send'
     | '/dashboard/settings'
     | '/dashboard/support'
     | '/dashboard/transactions'
@@ -189,6 +213,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardSettingsRouteImport
       parentRoute: typeof DashboardRoute
     }
+    '/dashboard/send': {
+      id: '/dashboard/send'
+      path: '/send'
+      fullPath: '/dashboard/send'
+      preLoaderRoute: typeof DashboardSendRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/investments': {
+      id: '/dashboard/investments'
+      path: '/investments'
+      fullPath: '/dashboard/investments'
+      preLoaderRoute: typeof DashboardInvestmentsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
     '/dashboard/cards': {
       id: '/dashboard/cards'
       path: '/cards'
@@ -209,6 +247,8 @@ declare module '@tanstack/react-router' {
 interface DashboardRouteChildren {
   DashboardAnalyticsRoute: typeof DashboardAnalyticsRoute
   DashboardCardsRoute: typeof DashboardCardsRoute
+  DashboardInvestmentsRoute: typeof DashboardInvestmentsRoute
+  DashboardSendRoute: typeof DashboardSendRoute
   DashboardSettingsRoute: typeof DashboardSettingsRoute
   DashboardSupportRoute: typeof DashboardSupportRoute
   DashboardTransactionsRoute: typeof DashboardTransactionsRoute
@@ -219,6 +259,8 @@ interface DashboardRouteChildren {
 const DashboardRouteChildren: DashboardRouteChildren = {
   DashboardAnalyticsRoute: DashboardAnalyticsRoute,
   DashboardCardsRoute: DashboardCardsRoute,
+  DashboardInvestmentsRoute: DashboardInvestmentsRoute,
+  DashboardSendRoute: DashboardSendRoute,
   DashboardSettingsRoute: DashboardSettingsRoute,
   DashboardSupportRoute: DashboardSupportRoute,
   DashboardTransactionsRoute: DashboardTransactionsRoute,

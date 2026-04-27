@@ -1,6 +1,8 @@
+import { Link } from "@tanstack/react-router";
 import { customerData, fmt } from "../mock-data";
 import { PageHeader, Panel, StatCard, Pill } from "../ui-bits";
-import { Wallet, CreditCard, TrendingUp, Users } from "lucide-react";
+import { CurrencyFlag } from "../currency";
+import { Wallet, CreditCard, TrendingUp, Users, Send, Repeat, ArrowDownToLine, Sparkles } from "lucide-react";
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip, Area, AreaChart } from "recharts";
 
 const COLORS = ["var(--primary)", "var(--accent)", "var(--purple)"];
@@ -13,13 +15,43 @@ export function CustomerOverview() {
     <div>
       <PageHeader title="Overview" subtitle="Your money at a glance" />
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <StatCard label="Total balance" value={fmt(customerData.balances.usd)} hint={`≈ ${fmt(customerData.balances.ngn, "NGN")}`} icon={<Wallet className="h-4 w-4" />} accent />
+        <StatCard label="Total balance" value={fmt(customerData.balances.usd)} hint={`≈ ${fmt(customerData.balances.ngn, "NGN")}`} icon={<CurrencyFlag code="USD" />} accent />
         <StatCard label="Card spend (mo)" value={fmt(customerData.cardSpend)} icon={<CreditCard className="h-4 w-4" />} />
         <StatCard label="Investments" value={fmt(customerData.investmentValue)} hint="+3.2% this month" icon={<TrendingUp className="h-4 w-4" />} />
         <StatCard label="Referral earnings" value={fmt(customerData.referrals)} icon={<Users className="h-4 w-4" />} />
       </div>
 
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5">
+        {[
+          { to: "/dashboard/send", label: "Send", icon: Send },
+          { to: "/dashboard/send", label: "Convert", icon: Repeat },
+          { to: "/dashboard/wallet", label: "Deposit", icon: ArrowDownToLine },
+          { to: "/dashboard/investments", label: "Invest", icon: Sparkles },
+        ].map((a) => (
+          <Link key={a.label} to={a.to} className="glass rounded-xl px-4 py-3 flex items-center gap-2 text-sm font-semibold hover:bg-accent/10 transition">
+            <span className="h-8 w-8 rounded-lg bg-gradient-vivid grid place-items-center text-primary-foreground"><a.icon className="h-4 w-4" /></span>
+            {a.label}
+          </Link>
+        ))}
+      </div>
+
       <div className="grid lg:grid-cols-3 gap-5 mt-6">
+        <Panel title="Multi-currency wallet" className="lg:col-span-3">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {(["USD", "NGN", "EUR", "GBP"] as const).map((c) => (
+              <div key={c} className="glass rounded-xl p-4 flex items-center gap-3">
+                <CurrencyFlag code={c} size="lg" />
+                <div>
+                  <p className="text-xs text-muted-foreground">{c}</p>
+                  <p className="font-display font-bold text-lg">{fmt(customerData.balances[c.toLowerCase() as keyof typeof customerData.balances], c)}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Panel>
+      </div>
+
+      <div className="grid lg:grid-cols-3 gap-5 mt-5">
         <Panel title="Balance trend (30d)" className="lg:col-span-2">
           <div className="h-60">
             <ResponsiveContainer>

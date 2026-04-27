@@ -11,6 +11,8 @@ import {
   X,
   Bell,
   ChevronDown,
+  TrendingUp,
+  Send,
 } from "lucide-react";
 import { useState } from "react";
 import logo from "@/assets/paydots-logo.png";
@@ -21,6 +23,8 @@ import { Footer } from "@/components/site/Footer";
 const nav = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { to: "/dashboard/wallet", label: "Wallet", icon: Wallet },
+  { to: "/dashboard/send", label: "Send & Convert", icon: Send },
+  { to: "/dashboard/investments", label: "Investments", icon: TrendingUp },
   { to: "/dashboard/transactions", label: "Transactions", icon: ArrowLeftRight },
   { to: "/dashboard/cards", label: "Cards / Payouts", icon: CreditCard },
   { to: "/dashboard/analytics", label: "Analytics", icon: BarChart3 },
@@ -109,7 +113,7 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
 
 function MobileBottomNav() {
   const loc = useLocation();
-  const items = nav.slice(0, 5);
+  const items = [nav[0], nav[1], nav[2], nav[3], nav[4]];
   return (
     <nav className="lg:hidden fixed bottom-0 inset-x-0 z-40 glass-strong border-t border-border">
       <div className="grid grid-cols-5">

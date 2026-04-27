@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useRole } from "@/components/dashboard/role-context";
 import { customerData, merchantData, agentData, fmt } from "@/components/dashboard/mock-data";
 import { PageHeader, Panel, StatCard } from "@/components/dashboard/ui-bits";
+import { CurrencyFlag } from "@/components/dashboard/currency";
 import { ArrowDownToLine, ArrowUpFromLine, Send, Plus } from "lucide-react";
 
 export const Route = createFileRoute("/dashboard/wallet")({
@@ -54,10 +55,21 @@ function WalletPage() {
     <div>
       <PageHeader title="Wallet & Balances" subtitle="Hold and move money in multiple currencies" />
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        <StatCard label="USD" value={fmt(b.usd)} accent hint="Airwallex virtual account" />
-        <StatCard label="NGN" value={fmt(b.ngn, "NGN")} hint="Local wallet" />
-        <StatCard label="EUR" value={fmt(b.eur, "EUR")} />
-        <StatCard label="GBP" value={fmt(b.gbp, "GBP")} />
+        {([
+          { code: "USD", val: b.usd, hint: "Airwallex virtual account", accent: true },
+          { code: "NGN", val: b.ngn, hint: "Local wallet" },
+          { code: "EUR", val: b.eur },
+          { code: "GBP", val: b.gbp },
+        ] as const).map((c) => (
+          <StatCard
+            key={c.code}
+            label={c.code}
+            value={fmt(c.val, c.code)}
+            hint={"hint" in c ? c.hint : undefined}
+            accent={"accent" in c ? c.accent : undefined}
+            icon={<CurrencyFlag code={c.code} size="md" />}
+          />
+        ))}
       </div>
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
         <Action icon={<ArrowDownToLine className="h-4 w-4" />} label="Deposit" />
