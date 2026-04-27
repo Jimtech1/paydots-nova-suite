@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import heroBg from "@/assets/hero-bg.jpg";
 import heroPerson from "@/assets/hero-person.jpg";
 import slideWallet from "@/assets/slide-wallet.jpg";
@@ -54,9 +55,9 @@ export function HeroSlider() {
               Earn yield, spend anywhere, move instantly.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-3">
-              <a href="#waitlist" className="bg-gradient-vivid text-primary-foreground font-semibold px-7 py-3.5 rounded-xl shadow-glow hover:scale-[1.02] transition">
+              <Link to="/dashboard" className="bg-gradient-vivid text-primary-foreground font-semibold px-7 py-3.5 rounded-xl shadow-glow hover:scale-[1.02] transition">
                 Create account
-              </a>
+              </Link>
               <a href="#features" className="glass px-7 py-3.5 rounded-xl text-sm font-semibold hover:bg-accent/10 transition">
                 Explore features
               </a>

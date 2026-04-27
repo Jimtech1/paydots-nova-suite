@@ -25,12 +25,12 @@ export function Navbar() {
             >
               Dashboard
             </Link>
-            <a
-              href="#waitlist"
+            <Link
+              to="/dashboard"
               className="bg-gradient-vivid text-primary-foreground text-sm font-semibold px-4 py-2 rounded-xl shadow-neon hover:opacity-90 transition"
             >
               Create account
-            </a>
+            </Link>
           </div>
         </div>
       </div>
