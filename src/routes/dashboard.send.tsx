@@ -100,22 +100,28 @@ function SendPage() {
           <div className="space-y-4">
             <div>
               <label className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">You send</label>
-              <div className="mt-1.5 glass rounded-xl flex items-center gap-2 px-3 py-3">
-                <CurrencyFlag code={from} />
-                <select
-                  value={from}
-                  onChange={(e) => setFrom(e.target.value)}
-                  className="bg-transparent outline-none font-semibold text-sm shrink-0"
-                >
-                  {currencies.map((c) => <option key={c} value={c}>{c}</option>)}
-                </select>
-                <input
-                  type="number"
-                  inputMode="decimal"
-                  value={amount}
-                  onChange={(e) => setAmount(e.target.value)}
-                  className="flex-1 min-w-0 bg-transparent outline-none text-right text-xl sm:text-2xl font-display font-bold"
-                />
+              <div className="mt-1.5 glass rounded-xl px-3 py-3">
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <CurrencyFlag code={from} />
+                    <select
+                      value={from}
+                      onChange={(e) => setFrom(e.target.value)}
+                      className="bg-transparent outline-none font-semibold text-sm appearance-none pr-4 cursor-pointer"
+                      style={{ backgroundImage: "none" }}
+                    >
+                      {currencies.map((c) => <option key={c} value={c}>{c}</option>)}
+                    </select>
+                  </div>
+                  <input
+                    type="number"
+                    inputMode="decimal"
+                    value={amount}
+                    onChange={(e) => setAmount(e.target.value)}
+                    className="flex-1 min-w-0 bg-transparent outline-none text-right text-2xl font-display font-bold"
+                    placeholder="0"
+                  />
+                </div>
               </div>
             </div>
 
@@ -127,17 +133,22 @@ function SendPage() {
 
             <div>
               <label className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Recipient gets</label>
-              <div className="mt-1.5 glass rounded-xl flex items-center gap-2 px-3 py-3">
-                <CurrencyFlag code={to} />
-                <select
-                  value={to}
-                  onChange={(e) => setTo(e.target.value)}
-                  className="bg-transparent outline-none font-semibold text-sm shrink-0"
-                >
-                  {currencies.map((c) => <option key={c} value={c}>{c}</option>)}
-                </select>
-                <div className="flex-1 min-w-0 text-right text-xl sm:text-2xl font-display font-bold truncate">
-                  {converted.toLocaleString(undefined, { maximumFractionDigits: 2 })}
+              <div className="mt-1.5 glass rounded-xl px-3 py-3">
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <CurrencyFlag code={to} />
+                    <select
+                      value={to}
+                      onChange={(e) => setTo(e.target.value)}
+                      className="bg-transparent outline-none font-semibold text-sm appearance-none pr-4 cursor-pointer"
+                      style={{ backgroundImage: "none" }}
+                    >
+                      {currencies.map((c) => <option key={c} value={c}>{c}</option>)}
+                    </select>
+                  </div>
+                  <div className="flex-1 min-w-0 text-right text-2xl font-display font-bold truncate">
+                    {converted.toLocaleString(undefined, { maximumFractionDigits: 2 })}
+                  </div>
                 </div>
               </div>
             </div>
