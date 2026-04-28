@@ -4,6 +4,7 @@ import { getRoleData, fmt } from "@/components/dashboard/mock-data";
 import { PageHeader, Panel, Pill } from "@/components/dashboard/ui-bits";
 import { Download, Search } from "lucide-react";
 import { useState } from "react";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/dashboard/transactions")({
   component: TransactionsPage,
@@ -19,13 +20,26 @@ function TransactionsPage() {
     (t) => (filter === "all" || t.type === filter) && t.desc.toLowerCase().includes(q.toLowerCase()),
   );
 
+  const exportCsv = () => {
+    const header = "id,date,description,type,amount,status\n";
+    const rows = filtered.map((t) => `${t.id},${t.date},"${t.desc}",${t.type},${t.amount},${t.status}`).join("\n");
+    const blob = new Blob([header + rows], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `paydots-transactions-${role}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+    toast.success(`Exported ${filtered.length} transactions`);
+  };
+
   return (
     <div>
       <PageHeader
         title="Transactions"
         subtitle={`Unified history for your ${role} account`}
         action={
-          <button className="glass rounded-xl px-3 py-2 text-sm flex items-center gap-2 font-semibold hover:bg-accent/10">
+          <button onClick={exportCsv} className="glass rounded-xl px-3 py-2 text-sm flex items-center gap-2 font-semibold hover:bg-accent/10">
             <Download className="h-4 w-4" />
             Export CSV
           </button>
