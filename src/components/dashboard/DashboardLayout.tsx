@@ -45,10 +45,11 @@ function RoleSwitcher() {
     <div className="relative">
       <button
         onClick={() => setOpen((o) => !o)}
-        className="glass flex items-center gap-2 rounded-xl px-3 py-1.5 text-xs font-semibold"
+        className="glass flex items-center gap-1.5 rounded-xl px-2.5 py-1.5 text-xs font-semibold"
       >
         <span className="h-2 w-2 rounded-full bg-gradient-vivid" />
-        {roleLabel[role]}
+        <span className="hidden sm:inline">{roleLabel[role]}</span>
+        <span className="sm:hidden">{roleLabel[role][0]}</span>
         <ChevronDown className="h-3.5 w-3.5 opacity-60" />
       </button>
       {open && (
@@ -142,23 +143,23 @@ function Topbar({ onMenu }: { onMenu: () => void }) {
   const { role } = useRole();
   return (
     <div className="sticky top-0 z-30 glass-strong border-b border-border">
-      <div className="flex items-center justify-between gap-3 px-4 sm:px-6 py-3">
-        <div className="flex items-center gap-3">
-          <button onClick={onMenu} className="lg:hidden glass h-9 w-9 grid place-items-center rounded-xl">
+      <div className="flex items-center justify-between gap-2 px-3 sm:px-6 py-3">
+        <div className="flex items-center gap-2 min-w-0">
+          <button onClick={onMenu} className="lg:hidden glass h-9 w-9 grid place-items-center rounded-xl shrink-0">
             <Menu className="h-4 w-4" />
           </button>
-          <div className="hidden sm:block">
+          <div className="hidden md:block min-w-0">
             <p className="text-xs text-muted-foreground">Welcome back</p>
-            <p className="text-sm font-semibold capitalize">{role} workspace</p>
+            <p className="text-sm font-semibold capitalize truncate">{role} workspace</p>
           </div>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
           <RoleSwitcher />
-          <button className="glass h-9 w-9 grid place-items-center rounded-xl hover:bg-accent/10">
+          <button className="glass h-9 w-9 grid place-items-center rounded-xl hover:bg-accent/10 shrink-0">
             <Bell className="h-4 w-4" />
           </button>
           <ThemeToggle />
-          <div className="h-9 w-9 rounded-xl bg-gradient-vivid grid place-items-center text-primary-foreground font-bold text-sm">
+          <div className="h-9 w-9 rounded-xl bg-gradient-vivid grid place-items-center text-primary-foreground font-bold text-sm shrink-0">
             {role[0].toUpperCase()}
           </div>
         </div>
@@ -196,7 +197,7 @@ function DashboardShell() {
 
       <div className="flex-1 min-w-0 flex flex-col">
         <Topbar onMenu={() => setMobileOpen(true)} />
-        <main className="flex-1 px-4 sm:px-6 py-6 pb-24 lg:pb-10 max-w-7xl w-full mx-auto">
+        <main className="flex-1 px-3 sm:px-6 py-5 sm:py-6 pb-24 lg:pb-10 max-w-7xl w-full mx-auto min-w-0">
           <Outlet />
         </main>
         <Footer />
