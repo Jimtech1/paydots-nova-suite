@@ -1,9 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useRole } from "@/components/dashboard/role-context";
-import { customerData, merchantData, agentData, fmt } from "@/components/dashboard/mock-data";
+import { customerData, agentData, fmt } from "@/components/dashboard/mock-data";
 import { PageHeader, Panel, Pill, StatCard } from "@/components/dashboard/ui-bits";
 import { CreditCard, Snowflake, Plus } from "lucide-react";
 import { useState } from "react";
+import { Modal, FormField, fieldClass, primaryBtn, ghostBtn } from "@/components/dashboard/Modal";
+import { toast } from "sonner";
 
 export const Route = createFileRoute("/dashboard/cards")({
   component: CardsPage,
@@ -93,8 +95,20 @@ function CardsPage() {
 
 function CustomerCards() {
   const [cards, setCards] = useState(customerData.cards);
-  const toggle = (i: number) =>
+  const [open, setOpen] = useState(false);
+  const [form, setForm] = useState({ brand: "Visa", label: "Personal", currency: "USD" });
+  const toggle = (i: number) => {
     setCards((c) => c.map((card, idx) => (idx === i ? { ...card, frozen: !card.frozen } : card)));
+    toast.success(cards[i].frozen ? "Card unfrozen" : "Card frozen");
+  };
+
+  const create = (e: React.FormEvent) => {
+    e.preventDefault();
+    const last4 = String(Math.floor(1000 + Math.random() * 9000));
+    setCards((c) => [...c, { last4, expiry: "06/29", frozen: false, brand: form.brand }]);
+    toast.success(`New ${form.brand} card •••• ${last4} issued`);
+    setOpen(false);
+  };
 
   return (
     <div>
@@ -102,14 +116,14 @@ function CustomerCards() {
         title="Virtual Cards"
         subtitle="Spend anywhere with your Paydots virtual cards"
         action={
-          <button className="bg-gradient-vivid text-primary-foreground font-semibold rounded-xl px-4 py-2 text-sm shadow-neon flex items-center gap-2">
+          <button onClick={() => setOpen(true)} className={`${primaryBtn} flex items-center gap-2`}>
             <Plus className="h-4 w-4" /> Request new card
           </button>
         }
       />
       <div className="grid sm:grid-cols-2 gap-5">
         {cards.map((card, i) => (
-          <div key={card.last4} className="relative rounded-2xl p-6 overflow-hidden shadow-glow text-white" style={{ background: "var(--gradient-vivid)" }}>
+          <div key={`${card.last4}-${i}`} className="relative rounded-2xl p-6 overflow-hidden shadow-glow text-white" style={{ background: "var(--gradient-vivid)" }}>
             <div className="absolute -bottom-12 -right-12 h-48 w-48 rounded-full bg-white/10 blur-2xl" />
             <div className="flex items-start justify-between">
               <div>
@@ -140,6 +154,28 @@ function CustomerCards() {
           </div>
         ))}
       </div>
+
+      <Modal open={open} onClose={() => setOpen(false)} title="Request a new virtual card">
+        <form onSubmit={create} className="space-y-4">
+          <FormField label="Card brand">
+            <select className={fieldClass} value={form.brand} onChange={(e) => setForm({ ...form, brand: e.target.value })}>
+              {["Visa", "Mastercard"].map((b) => <option key={b}>{b}</option>)}
+            </select>
+          </FormField>
+          <FormField label="Label">
+            <input className={fieldClass} value={form.label} onChange={(e) => setForm({ ...form, label: e.target.value })} placeholder="Personal, Subscriptions…" />
+          </FormField>
+          <FormField label="Currency">
+            <select className={fieldClass} value={form.currency} onChange={(e) => setForm({ ...form, currency: e.target.value })}>
+              {["USD", "NGN", "EUR", "GBP"].map((c) => <option key={c}>{c}</option>)}
+            </select>
+          </FormField>
+          <div className="flex gap-2">
+            <button type="button" onClick={() => setOpen(false)} className={`flex-1 ${ghostBtn}`}>Cancel</button>
+            <button type="submit" className={`flex-1 ${primaryBtn}`}>Issue card</button>
+          </div>
+        </form>
+      </Modal>
     </div>
   );
 }

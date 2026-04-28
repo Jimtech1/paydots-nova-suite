@@ -3,16 +3,35 @@ import { PageHeader, Panel, StatCard, Pill } from "../ui-bits";
 import { Coins, Users, ArrowDownToLine, ArrowUpFromLine, Plus } from "lucide-react";
 import { useState } from "react";
 import { Area, AreaChart, ResponsiveContainer, Tooltip } from "recharts";
+import { Modal, FormField, fieldClass, primaryBtn, ghostBtn } from "@/components/dashboard/Modal";
+import { toast } from "sonner";
 
 export function AgentOverview() {
   const trend = agentData.trend.map((v, i) => ({ d: i, v }));
   const [requests, setRequests] = useState(agentData.requests);
-  const [toast, setToast] = useState<string | null>(null);
+  const [toastMsg, setToast] = useState<string | null>(null);
+  const [open, setOpen] = useState(false);
+  const [form, setForm] = useState({ customer: "", type: "Cash-in", amount: "" });
 
   const act = (id: string, action: "Approved" | "Rejected") => {
     setRequests((r) => r.map((req) => (req.id === id ? { ...req, status: action } : req)));
     setToast(`Request ${action.toLowerCase()}`);
     setTimeout(() => setToast(null), 2000);
+  };
+
+  const newRequest = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!form.customer.trim() || !form.amount || Number(form.amount) <= 0) {
+      toast.error("Fill in customer and amount");
+      return;
+    }
+    setRequests((r) => [
+      { id: `r${Date.now()}`, customer: form.customer, type: form.type, amount: Number(form.amount), status: "Pending" },
+      ...r,
+    ]);
+    toast.success("Cash request created");
+    setForm({ customer: "", type: "Cash-in", amount: "" });
+    setOpen(false);
   };
 
   return (
@@ -21,7 +40,7 @@ export function AgentOverview() {
         title="Agent dashboard"
         subtitle="Manage cash requests and earn commissions"
         action={
-          <button className="bg-gradient-vivid text-primary-foreground font-semibold rounded-xl px-4 py-2 text-sm shadow-neon flex items-center gap-2">
+          <button onClick={() => setOpen(true)} className={`${primaryBtn} flex items-center gap-2`}>
             <Plus className="h-4 w-4" /> New cash request
           </button>
         }
@@ -104,11 +123,32 @@ export function AgentOverview() {
         </div>
       </Panel>
 
-      {toast && (
+      {toastMsg && (
         <div className="fixed bottom-20 lg:bottom-8 right-4 glass-strong rounded-xl px-4 py-3 text-sm font-semibold shadow-card z-50">
-          {toast}
+          {toastMsg}
         </div>
       )}
+
+      <Modal open={open} onClose={() => setOpen(false)} title="New cash request">
+        <form onSubmit={newRequest} className="space-y-4">
+          <FormField label="Customer name">
+            <input className={fieldClass} value={form.customer} onChange={(e) => setForm({ ...form, customer: e.target.value })} placeholder="e.g. Tunde A." />
+          </FormField>
+          <FormField label="Type">
+            <select className={fieldClass} value={form.type} onChange={(e) => setForm({ ...form, type: e.target.value })}>
+              <option>Cash-in</option>
+              <option>Cash-out</option>
+            </select>
+          </FormField>
+          <FormField label="Amount (USD)">
+            <input type="number" className={fieldClass} value={form.amount} onChange={(e) => setForm({ ...form, amount: e.target.value })} />
+          </FormField>
+          <div className="flex gap-2">
+            <button type="button" onClick={() => setOpen(false)} className={`flex-1 ${ghostBtn}`}>Cancel</button>
+            <button type="submit" className={`flex-1 ${primaryBtn}`}>Create request</button>
+          </div>
+        </form>
+      </Modal>
     </div>
   );
 }

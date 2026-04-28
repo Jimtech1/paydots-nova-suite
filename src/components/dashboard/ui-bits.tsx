@@ -40,10 +40,10 @@ export function StatCard({
 
 export function Panel({ title, action, children, className = "" }: { title?: string; action?: ReactNode; children: ReactNode; className?: string }) {
   return (
-    <div className={`glass rounded-2xl p-5 ${className}`}>
+    <div className={`glass rounded-2xl p-4 sm:p-5 min-w-0 ${className}`}>
       {(title || action) && (
-        <div className="flex items-center justify-between mb-4">
-          {title && <h3 className="font-display font-semibold text-lg">{title}</h3>}
+        <div className="flex items-center justify-between gap-2 mb-4">
+          {title && <h3 className="font-display font-semibold text-base sm:text-lg min-w-0 truncate">{title}</h3>}
           {action}
         </div>
       )}
