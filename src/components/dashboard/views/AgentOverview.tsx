@@ -123,11 +123,32 @@ export function AgentOverview() {
         </div>
       </Panel>
 
-      {toast && (
+      {toastMsg && (
         <div className="fixed bottom-20 lg:bottom-8 right-4 glass-strong rounded-xl px-4 py-3 text-sm font-semibold shadow-card z-50">
-          {toast}
+          {toastMsg}
         </div>
       )}
+
+      <Modal open={open} onClose={() => setOpen(false)} title="New cash request">
+        <form onSubmit={newRequest} className="space-y-4">
+          <FormField label="Customer name">
+            <input className={fieldClass} value={form.customer} onChange={(e) => setForm({ ...form, customer: e.target.value })} placeholder="e.g. Tunde A." />
+          </FormField>
+          <FormField label="Type">
+            <select className={fieldClass} value={form.type} onChange={(e) => setForm({ ...form, type: e.target.value })}>
+              <option>Cash-in</option>
+              <option>Cash-out</option>
+            </select>
+          </FormField>
+          <FormField label="Amount (USD)">
+            <input type="number" className={fieldClass} value={form.amount} onChange={(e) => setForm({ ...form, amount: e.target.value })} />
+          </FormField>
+          <div className="flex gap-2">
+            <button type="button" onClick={() => setOpen(false)} className={`flex-1 ${ghostBtn}`}>Cancel</button>
+            <button type="submit" className={`flex-1 ${primaryBtn}`}>Create request</button>
+          </div>
+        </form>
+      </Modal>
     </div>
   );
 }
