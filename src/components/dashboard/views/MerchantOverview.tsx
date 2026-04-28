@@ -80,21 +80,31 @@ export function MerchantOverview() {
       </Panel>
 
       {showLink && (
-        <div className="fixed inset-0 z-50 grid place-items-center bg-background/70 backdrop-blur-sm p-4" onClick={() => setShowLink(false)}>
+        <div className="fixed inset-0 z-50 grid place-items-center bg-background/70 backdrop-blur-sm p-4" onClick={() => { setShowLink(false); setGenerated(null); }}>
           <div onClick={(e) => e.stopPropagation()} className="glass-strong rounded-2xl p-6 max-w-md w-full">
             <h3 className="font-display font-bold text-xl mb-4">New payment link</h3>
-            <input value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="Amount (USD)" className="w-full glass rounded-xl px-3 py-2 text-sm bg-transparent outline-none mb-3" />
-            <input value={desc} onChange={(e) => setDesc(e.target.value)} placeholder="Description" className="w-full glass rounded-xl px-3 py-2 text-sm bg-transparent outline-none mb-4" />
+            <input value={amount} onChange={(e) => setAmount(e.target.value)} type="number" placeholder="Amount (USD)" className="w-full glass rounded-xl px-3 py-2.5 text-sm bg-transparent outline-none mb-3" />
+            <input value={desc} onChange={(e) => setDesc(e.target.value)} placeholder="Description" className="w-full glass rounded-xl px-3 py-2.5 text-sm bg-transparent outline-none mb-4" />
             <button
-              onClick={() => setGenerated(`https://pay.paydots.app/${Math.random().toString(36).slice(2, 10)}`)}
-              className="w-full bg-gradient-vivid text-primary-foreground font-semibold rounded-xl px-4 py-2 text-sm shadow-neon"
+              onClick={() => {
+                if (!amount || Number(amount) <= 0) return;
+                const url = `https://pay.paydots.app/${Math.random().toString(36).slice(2, 10)}`;
+                setGenerated(url);
+              }}
+              className="w-full bg-gradient-vivid text-primary-foreground font-semibold rounded-xl px-4 py-2.5 text-sm shadow-neon"
             >
               Generate link
             </button>
             {generated && (
               <div className="mt-4 glass rounded-xl p-3">
-                <p className="text-xs text-muted-foreground">Link</p>
-                <p className="font-mono text-sm break-all text-accent">{generated}</p>
+                <p className="text-xs text-muted-foreground">Share this link</p>
+                <p className="font-mono text-sm break-all text-accent mt-1">{generated}</p>
+                <button
+                  onClick={() => { navigator.clipboard?.writeText(generated); }}
+                  className="mt-3 w-full glass rounded-xl px-3 py-2 text-xs font-semibold hover:bg-accent/10"
+                >
+                  Copy link
+                </button>
               </div>
             )}
           </div>
