@@ -195,7 +195,7 @@ function DashboardShell() {
         </div>
       )}
 
-      <div className="flex-1 min-w-0 flex flex-col">
+      <div className="flex-1 min-w-0 flex flex-col overflow-x-hidden">
         <Topbar onMenu={() => setMobileOpen(true)} />
         <main className="flex-1 px-3 sm:px-6 py-5 sm:py-6 pb-24 lg:pb-10 max-w-7xl w-full mx-auto min-w-0">
           <Outlet />
