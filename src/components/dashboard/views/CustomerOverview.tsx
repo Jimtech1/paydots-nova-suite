@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { customerData, fmt } from "../mock-data";
 import { PageHeader, Panel, StatCard, Pill } from "../ui-bits";
 import { CurrencyFlag } from "../currency";
-import { Wallet, CreditCard, TrendingUp, Users, Send, Repeat, ArrowDownToLine, Sparkles, Briefcase } from "lucide-react";
+import { CreditCard, TrendingUp, Users, Send, Repeat, ArrowDownToLine, Sparkles, Briefcase } from "lucide-react";
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip, Area, AreaChart } from "recharts";
 
 const COLORS = ["var(--primary)", "var(--accent)", "var(--purple)"];
