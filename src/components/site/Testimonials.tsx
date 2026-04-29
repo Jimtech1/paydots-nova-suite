@@ -4,7 +4,7 @@ import avatar3 from "@/assets/avatar-3.jpg";
 
 const items = [
   { quote: "Paydots makes it effortless to hold multiple currencies, spend with a card, and invest in high-yield assets — all from one dashboard.", name: "Chidi Okafor", role: "Early backer · Lagos", avatar: avatar1 },
-  { quote: "Finally, an app that bridges Stellar's speed with real institutional yield. The custodian model just works for everyday users.", name: "Amara Kalu", role: "Stellar ecosystem builder", avatar: avatar2 },
+  { quote: "Finally, an app that bridges Lightspark's instant global rails with real institutional yield. The custodian model just works for everyday users.", name: "Amara Kalu", role: "Lightspark ecosystem builder", avatar: avatar2 },
   { quote: "Cross-border payouts to my contractors used to take days. With Paydots, they're done in seconds at near-zero cost.", name: "David Mensah", role: "SaaS founder · Nairobi", avatar: avatar3 },
 ];
 

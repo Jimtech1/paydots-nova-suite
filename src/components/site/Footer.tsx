@@ -11,7 +11,7 @@ export function Footer() {
             <span className="font-bold text-lg">Paydots</span>
           </div>
           <p className="mt-3 text-sm text-muted-foreground max-w-sm">
-            The Stellar financial ecosystem. Custodian wallet, virtual cards, cross-border payments, and institutional-grade investments.
+            The Lightspark-powered financial ecosystem. Custodian wallet, UMA money address, virtual cards, global payroll, and institutional-grade investments.
           </p>
         </div>
         <div>
@@ -19,7 +19,7 @@ export function Footer() {
           <ul className="space-y-2 text-sm text-muted-foreground">
             <li><a href="#features" className="hover:text-foreground">Features</a></li>
             <li><a href="#invest" className="hover:text-foreground">Licensed Portfolio Manager</a></li>
-            <li><a href="#stats" className="hover:text-foreground">Stellar Network</a></li>
+            <li><a href="#stats" className="hover:text-foreground">Lightspark Global Account</a></li>
             <li><a href="#waitlist" className="hover:text-foreground">Waitlist</a></li>
           </ul>
         </div>
@@ -33,7 +33,7 @@ export function Footer() {
         </div>
       </div>
       <div className="mx-auto max-w-6xl px-4 mt-10 pt-6 border-t border-border text-xs text-muted-foreground text-center">
-        © 2026 Paydots — Built on Stellar. Investments via a licensed portfolio manager (SEC-registered).
+        © 2026 Paydots — Powered by Lightspark Global Account. Investments via a licensed portfolio manager (SEC-registered).
       </div>
     </footer>
   );

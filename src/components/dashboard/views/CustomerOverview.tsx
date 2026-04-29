@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { customerData, fmt } from "../mock-data";
 import { PageHeader, Panel, StatCard, Pill } from "../ui-bits";
 import { CurrencyFlag } from "../currency";
-import { Wallet, CreditCard, TrendingUp, Users, Send, Repeat, ArrowDownToLine, Sparkles } from "lucide-react";
+import { CreditCard, TrendingUp, Users, Send, Repeat, ArrowDownToLine, Sparkles, Briefcase } from "lucide-react";
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip, Area, AreaChart } from "recharts";
 
 const COLORS = ["var(--primary)", "var(--accent)", "var(--purple)"];
@@ -21,11 +21,12 @@ export function CustomerOverview() {
         <StatCard label="Referral earnings" value={fmt(customerData.referrals)} icon={<Users className="h-4 w-4" />} />
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5">
+      <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mt-5">
         {[
           { to: "/dashboard/send", label: "Send", icon: Send },
           { to: "/dashboard/send", label: "Convert", icon: Repeat },
           { to: "/dashboard/wallet", label: "Deposit", icon: ArrowDownToLine },
+          { to: "/dashboard/payroll", label: "Payroll", icon: Briefcase },
           { to: "/dashboard/investments", label: "Invest", icon: Sparkles },
         ].map((a) => (
           <Link key={a.label} to={a.to} className="glass rounded-xl px-4 py-3 flex items-center gap-2 text-sm font-semibold hover:bg-accent/10 transition">
@@ -36,8 +37,8 @@ export function CustomerOverview() {
       </div>
 
       <div className="grid lg:grid-cols-3 gap-5 mt-6">
-        <Panel title="Multi-currency wallet" className="lg:col-span-3">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <Panel title="Multi-currency wallet" className="lg:col-span-2">
+          <div className="grid sm:grid-cols-2 gap-3">
             {(["USD", "NGN", "EUR", "GBP"] as const).map((c) => (
               <div key={c} className="glass rounded-xl p-4 flex items-center gap-3">
                 <CurrencyFlag code={c} size="lg" />
@@ -47,6 +48,25 @@ export function CustomerOverview() {
                 </div>
               </div>
             ))}
+          </div>
+        </Panel>
+
+        <Panel title="Your UMA money address" className="lg:col-span-1">
+          <p className="text-xs text-muted-foreground">Receive money from any UMA-compatible wallet, bank, or country.</p>
+          <div className="glass rounded-xl p-4 mt-3 flex items-center justify-between gap-2">
+            <span className="font-mono text-sm font-semibold truncate">$you@paydots.app</span>
+            <button
+              onClick={() => {
+                navigator.clipboard?.writeText("$you@paydots.app");
+              }}
+              className="text-xs text-accent font-semibold shrink-0 hover:underline"
+            >
+              Copy
+            </button>
+          </div>
+          <div className="mt-3 text-[11px] text-muted-foreground flex items-center gap-1.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-neon" />
+            Powered by Lightspark Global Account
           </div>
         </Panel>
       </div>

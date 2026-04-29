@@ -13,6 +13,7 @@ import {
   ChevronDown,
   TrendingUp,
   Send,
+  Briefcase,
 } from "lucide-react";
 import { useState } from "react";
 import logo from "@/assets/paydots-logo.png";
@@ -24,6 +25,7 @@ const nav = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { to: "/dashboard/wallet", label: "Wallet", icon: Wallet },
   { to: "/dashboard/send", label: "Send & Convert", icon: Send },
+  { to: "/dashboard/payroll", label: "Global Payroll", icon: Briefcase },
   { to: "/dashboard/investments", label: "Investments", icon: TrendingUp },
   { to: "/dashboard/transactions", label: "Transactions", icon: ArrowLeftRight },
   { to: "/dashboard/cards", label: "Cards / Payouts", icon: CreditCard },

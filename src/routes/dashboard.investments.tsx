@@ -64,7 +64,7 @@ const products: Product[] = [
   {
     id: "realestate",
     name: "Tokenized Real Estate",
-    desc: "Fractional ownership of yield-producing properties tokenized on Stellar.",
+    desc: "Fractional ownership of yield-producing properties, settled instantly via Lightspark Global Account.",
     apy: 14.0,
     min: 250,
     term: "12 — 36 months",

@@ -13,10 +13,10 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Paydots — The Stellar Financial Ecosystem" },
-      { name: "description", content: "Spend, invest, accept payments, and earn yield in one secure custodian wallet. Powered by Stellar and a licensed portfolio manager." },
-      { property: "og:title", content: "Paydots — The Stellar Financial Ecosystem" },
-      { property: "og:description", content: "Custodian wallet, virtual cards, cross-border payments and institutional-grade investments — built on Stellar." },
+      { title: "Paydots — Your Lightspark-Powered Financial Super-App" },
+      { name: "description", content: "Spend, invest, accept payments, run global payroll, and earn yield in one custodian wallet — powered by your Lightspark Global Account and UMA." },
+      { property: "og:title", content: "Paydots — Your Lightspark-Powered Financial Super-App" },
+      { property: "og:description", content: "Custodian wallet, UMA money address, virtual cards, global payroll, cross-border payments and institutional-grade investments — powered by Lightspark Global Account." },
     ],
   }),
 });
