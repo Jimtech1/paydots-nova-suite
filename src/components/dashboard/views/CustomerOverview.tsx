@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { customerData, fmt } from "../mock-data";
 import { PageHeader, Panel, StatCard, Pill } from "../ui-bits";
 import { CurrencyFlag } from "../currency";
-import { Wallet, CreditCard, TrendingUp, Users, Send, Repeat, ArrowDownToLine, Sparkles } from "lucide-react";
+import { Wallet, CreditCard, TrendingUp, Users, Send, Repeat, ArrowDownToLine, Sparkles, Briefcase } from "lucide-react";
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip, Area, AreaChart } from "recharts";
 
 const COLORS = ["var(--primary)", "var(--accent)", "var(--purple)"];
@@ -21,11 +21,12 @@ export function CustomerOverview() {
         <StatCard label="Referral earnings" value={fmt(customerData.referrals)} icon={<Users className="h-4 w-4" />} />
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5">
+      <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mt-5">
         {[
           { to: "/dashboard/send", label: "Send", icon: Send },
           { to: "/dashboard/send", label: "Convert", icon: Repeat },
           { to: "/dashboard/wallet", label: "Deposit", icon: ArrowDownToLine },
+          { to: "/dashboard/payroll", label: "Payroll", icon: Briefcase },
           { to: "/dashboard/investments", label: "Invest", icon: Sparkles },
         ].map((a) => (
           <Link key={a.label} to={a.to} className="glass rounded-xl px-4 py-3 flex items-center gap-2 text-sm font-semibold hover:bg-accent/10 transition">

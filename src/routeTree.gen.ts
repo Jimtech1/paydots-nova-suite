@@ -17,6 +17,7 @@ import { Route as DashboardTransactionsRouteImport } from './routes/dashboard.tr
 import { Route as DashboardSupportRouteImport } from './routes/dashboard.support'
 import { Route as DashboardSettingsRouteImport } from './routes/dashboard.settings'
 import { Route as DashboardSendRouteImport } from './routes/dashboard.send'
+import { Route as DashboardPayrollRouteImport } from './routes/dashboard.payroll'
 import { Route as DashboardInvestmentsRouteImport } from './routes/dashboard.investments'
 import { Route as DashboardCardsRouteImport } from './routes/dashboard.cards'
 import { Route as DashboardAnalyticsRouteImport } from './routes/dashboard.analytics'
@@ -61,6 +62,11 @@ const DashboardSendRoute = DashboardSendRouteImport.update({
   path: '/send',
   getParentRoute: () => DashboardRoute,
 } as any)
+const DashboardPayrollRoute = DashboardPayrollRouteImport.update({
+  id: '/payroll',
+  path: '/payroll',
+  getParentRoute: () => DashboardRoute,
+} as any)
 const DashboardInvestmentsRoute = DashboardInvestmentsRouteImport.update({
   id: '/investments',
   path: '/investments',
@@ -83,6 +89,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/analytics': typeof DashboardAnalyticsRoute
   '/dashboard/cards': typeof DashboardCardsRoute
   '/dashboard/investments': typeof DashboardInvestmentsRoute
+  '/dashboard/payroll': typeof DashboardPayrollRoute
   '/dashboard/send': typeof DashboardSendRoute
   '/dashboard/settings': typeof DashboardSettingsRoute
   '/dashboard/support': typeof DashboardSupportRoute
@@ -95,6 +102,7 @@ export interface FileRoutesByTo {
   '/dashboard/analytics': typeof DashboardAnalyticsRoute
   '/dashboard/cards': typeof DashboardCardsRoute
   '/dashboard/investments': typeof DashboardInvestmentsRoute
+  '/dashboard/payroll': typeof DashboardPayrollRoute
   '/dashboard/send': typeof DashboardSendRoute
   '/dashboard/settings': typeof DashboardSettingsRoute
   '/dashboard/support': typeof DashboardSupportRoute
@@ -109,6 +117,7 @@ export interface FileRoutesById {
   '/dashboard/analytics': typeof DashboardAnalyticsRoute
   '/dashboard/cards': typeof DashboardCardsRoute
   '/dashboard/investments': typeof DashboardInvestmentsRoute
+  '/dashboard/payroll': typeof DashboardPayrollRoute
   '/dashboard/send': typeof DashboardSendRoute
   '/dashboard/settings': typeof DashboardSettingsRoute
   '/dashboard/support': typeof DashboardSupportRoute
@@ -124,6 +133,7 @@ export interface FileRouteTypes {
     | '/dashboard/analytics'
     | '/dashboard/cards'
     | '/dashboard/investments'
+    | '/dashboard/payroll'
     | '/dashboard/send'
     | '/dashboard/settings'
     | '/dashboard/support'
@@ -136,6 +146,7 @@ export interface FileRouteTypes {
     | '/dashboard/analytics'
     | '/dashboard/cards'
     | '/dashboard/investments'
+    | '/dashboard/payroll'
     | '/dashboard/send'
     | '/dashboard/settings'
     | '/dashboard/support'
@@ -149,6 +160,7 @@ export interface FileRouteTypes {
     | '/dashboard/analytics'
     | '/dashboard/cards'
     | '/dashboard/investments'
+    | '/dashboard/payroll'
     | '/dashboard/send'
     | '/dashboard/settings'
     | '/dashboard/support'
@@ -220,6 +232,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardSendRouteImport
       parentRoute: typeof DashboardRoute
     }
+    '/dashboard/payroll': {
+      id: '/dashboard/payroll'
+      path: '/payroll'
+      fullPath: '/dashboard/payroll'
+      preLoaderRoute: typeof DashboardPayrollRouteImport
+      parentRoute: typeof DashboardRoute
+    }
     '/dashboard/investments': {
       id: '/dashboard/investments'
       path: '/investments'
@@ -248,6 +267,7 @@ interface DashboardRouteChildren {
   DashboardAnalyticsRoute: typeof DashboardAnalyticsRoute
   DashboardCardsRoute: typeof DashboardCardsRoute
   DashboardInvestmentsRoute: typeof DashboardInvestmentsRoute
+  DashboardPayrollRoute: typeof DashboardPayrollRoute
   DashboardSendRoute: typeof DashboardSendRoute
   DashboardSettingsRoute: typeof DashboardSettingsRoute
   DashboardSupportRoute: typeof DashboardSupportRoute
@@ -260,6 +280,7 @@ const DashboardRouteChildren: DashboardRouteChildren = {
   DashboardAnalyticsRoute: DashboardAnalyticsRoute,
   DashboardCardsRoute: DashboardCardsRoute,
   DashboardInvestmentsRoute: DashboardInvestmentsRoute,
+  DashboardPayrollRoute: DashboardPayrollRoute,
   DashboardSendRoute: DashboardSendRoute,
   DashboardSettingsRoute: DashboardSettingsRoute,
   DashboardSupportRoute: DashboardSupportRoute,
