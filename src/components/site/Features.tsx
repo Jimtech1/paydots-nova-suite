@@ -44,14 +44,68 @@ export function Features() {
           ))}
         </div>
 
+        {/* Lightspark Global Account showcase */}
+        <div className="mt-24 grid md:grid-cols-2 gap-10 items-center">
+          <div className="relative order-2 md:order-1">
+            <div className="absolute -inset-10 bg-gradient-glow blur-3xl" />
+            <img src={lightsparkNetwork} alt="Lightspark Global Account network" loading="lazy" width={1280} height={896} className="relative rounded-3xl shadow-glow animate-float" />
+          </div>
+          <div className="order-1 md:order-2">
+            <div className="text-xs uppercase tracking-widest text-accent mb-3">Lightspark Global Account</div>
+            <h3 className="text-3xl md:text-4xl font-bold">One account. <span className="text-gradient">Every currency.</span> Sub-second settlement.</h3>
+            <p className="mt-4 text-muted-foreground">Powered by Lightspark Grid — the global rail used by modern financial institutions to move fiat and crypto across borders. Quotes, FX, and settlement happen in a single API call.</p>
+            <ul className="mt-6 space-y-3 text-sm">
+              {["Real-time FX with transparent quotes", "Pay-ins & payouts to 30+ countries", "Card top-ups and ramps in/out", "On-chain settlement when you need it"].map((t) => (
+                <li key={t} className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent shadow-neon" />{t}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* UMA Money Address showcase */}
+        <div className="mt-24 grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <div className="text-xs uppercase tracking-widest text-accent mb-3">UMA Money Address</div>
+            <h3 className="text-3xl md:text-4xl font-bold">Your money handle, <span className="text-gradient">anywhere on Earth.</span></h3>
+            <p className="mt-4 text-muted-foreground">A Universal Money Address looks like an email — <span className="font-mono text-foreground">$you@paydots.app</span> — and works with any UMA-compatible wallet, bank, or country. No IBANs, no SWIFT, no friction.</p>
+            <ul className="mt-6 space-y-3 text-sm">
+              {["Human-readable, portable identity", "Cross-wallet, cross-currency receive", "Built-in compliance & travel rule", "Works with Lightning, fiat, and stablecoins"].map((t) => (
+                <li key={t} className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent shadow-neon" />{t}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="relative">
+            <div className="absolute -inset-10 bg-gradient-glow blur-3xl" />
+            <img src={umaAddress} alt="UMA Universal Money Address" loading="lazy" width={1280} height={896} className="relative rounded-3xl shadow-glow animate-float" />
+          </div>
+        </div>
+
+        {/* Global Payroll showcase */}
+        <div className="mt-24 grid md:grid-cols-2 gap-10 items-center">
+          <div className="relative order-2 md:order-1">
+            <div className="absolute -inset-10 bg-gradient-glow blur-3xl" />
+            <img src={globalPayroll} alt="Paydots global payroll dashboard" loading="lazy" width={1280} height={896} className="relative rounded-3xl shadow-glow animate-float" />
+          </div>
+          <div className="order-1 md:order-2">
+            <div className="text-xs uppercase tracking-widest text-accent mb-3">Global Payroll</div>
+            <h3 className="text-3xl md:text-4xl font-bold">Pay your global team in <span className="text-gradient">seconds, not weeks.</span></h3>
+            <p className="mt-4 text-muted-foreground">Run payroll for contractors and employees across 30+ countries from one dashboard. Fund once in your base currency — Paydots handles FX, routing, and per-employee delivery via UMA, bank, or local rail.</p>
+            <ul className="mt-6 space-y-3 text-sm">
+              {["Bulk runs & scheduled cycles", "Pay in USD, EUR, NGN, GBP and more", "Per-employee UMA or bank delivery", "Receipts, payslips & CSV exports"].map((t) => (
+                <li key={t} className="flex items-center gap-3"><span className="h-1.5 w-1.5 rounded-full bg-accent shadow-neon" />{t}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
         {/* Dashboard preview */}
-        <div className="mt-20 grid md:grid-cols-2 gap-10 items-center">
+        <div className="mt-24 grid md:grid-cols-2 gap-10 items-center">
           <div>
             <div className="text-xs uppercase tracking-widest text-accent mb-3">Dashboard preview</div>
             <h3 className="text-3xl md:text-4xl font-bold">Your money, beautifully organized.</h3>
-            <p className="mt-4 text-muted-foreground">See balances across currencies, manage cards, track investments, and accept payments — all from a single, fast, native-feel app.</p>
+            <p className="mt-4 text-muted-foreground">See balances across currencies, manage cards, run payroll, track investments, and accept payments — all from a single, fast, native-feel app.</p>
             <ul className="mt-6 space-y-3 text-sm">
-              {["Real-time multi-currency balances", "Issue & freeze cards instantly", "Yield portfolio at a glance", "Merchant tools built-in"].map((t) => (
+              {["Real-time multi-currency balances", "Issue & freeze cards instantly", "Global payroll with one click", "Yield portfolio at a glance", "Merchant tools built-in"].map((t) => (
                 <li key={t} className="flex items-center gap-3">
                   <span className="h-1.5 w-1.5 rounded-full bg-accent shadow-neon" />
                   {t}
