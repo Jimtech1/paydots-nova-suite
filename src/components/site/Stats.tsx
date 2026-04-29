@@ -1,6 +1,6 @@
 const stats = [
   { v: "0.1%", l: "Transaction fee" },
-  { v: "3-5s", l: "Stellar settlement" },
+  { v: "<1s", l: "Lightspark settlement" },
   { v: "30+", l: "Currencies supported" },
   { v: "18%", l: "APY on investments" },
 ];

@@ -9,7 +9,9 @@ export const Route = createFileRoute("/dashboard/support")({
 
 const faqs = [
   { q: "How do I get a virtual card?", a: "Go to Cards and click 'Request new card'. Your card is issued instantly." },
-  { q: "What are the FX fees?", a: "Cross-border transfers cost 0.1% via Stellar. There are no hidden markups." },
+  { q: "What are the FX fees?", a: "Cross-border transfers cost 0.1% via your Lightspark Global Account. Live FX quotes are sourced from Lightspark Grid switches with no hidden markups." },
+  { q: "What is a UMA address?", a: "UMA (Universal Money Address) is your portable, human-readable money handle (e.g. $you@paydots.app). Send and receive across any UMA-compatible wallet, bank, or country." },
+  { q: "How does global payroll work?", a: "Bulk-pay your team in 30+ currencies through Lightspark Grid. Each employee receives funds at their UMA, bank account, or local rail in seconds, settled in your preferred base currency." },
   { q: "Is my money safe?", a: "Funds are custodied with regulated partners and investments are managed by a licensed portfolio manager." },
   { q: "How do payouts work for merchants?", a: "Payouts settle to your linked bank account every weekday." },
 ];
