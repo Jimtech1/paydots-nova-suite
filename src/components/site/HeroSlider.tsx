@@ -9,7 +9,7 @@ import slideInvest from "@/assets/slide-invest.jpg";
 const slides = [
   {
     title: "Multi-Currency Custodian Wallet",
-    sub: "Hold NGN, USDC, EUR, and stablecoins. Instant swaps via the Stellar DEX.",
+    sub: "Hold NGN, USDC, EUR, and stablecoins. Instant cross-currency swaps via your Lightspark Global Account.",
     img: slideWallet,
   },
   {
@@ -45,7 +45,7 @@ export function HeroSlider() {
           <div className="text-center lg:text-left max-w-2xl mx-auto lg:mx-0 animate-fade-up">
             <div className="inline-flex items-center gap-2 glass rounded-full px-3 py-1 text-xs text-muted-foreground mb-6">
               <span className="h-1.5 w-1.5 rounded-full bg-accent animate-glow-pulse" />
-              Powered by the Stellar Network
+              Powered by Lightspark Global Account
             </div>
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-[1.02] tracking-tighter">
               Your financial<br />
@@ -126,7 +126,7 @@ export function HeroSlider() {
 
         {/* Trust badges */}
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3 text-xs text-muted-foreground">
-          {["Stellar Network", "Custodian Wallet", "Licensed Portfolio Manager", "Virtual Cards"].map((b) => (
+          {["Lightspark Global Account", "UMA Money Address", "Global Payroll", "Custodian Wallet", "Virtual Cards"].map((b) => (
             <span key={b} className="glass rounded-full px-4 py-2">{b}</span>
           ))}
         </div>
