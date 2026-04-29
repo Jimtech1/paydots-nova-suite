@@ -1,15 +1,21 @@
-import { Coins, CreditCard, Globe, TrendingUp, Store, Users, Landmark, Send } from "lucide-react";
+import { Coins, CreditCard, Globe, TrendingUp, Store, Users, Landmark, Send, AtSign, Briefcase, Zap } from "lucide-react";
 import dashboard from "@/assets/dashboard-preview.jpg";
+import lightsparkNetwork from "@/assets/lightspark-network.jpg";
+import globalPayroll from "@/assets/global-payroll.jpg";
+import umaAddress from "@/assets/uma-address.jpg";
 
 const features = [
-  { icon: Coins, title: "Multi-Currency Custodian Wallet", desc: "Hold NGN, USDC, EUR, GBP, and stablecoins. Instant swaps via Stellar DEX. Paydots securely manages your funds." },
+  { icon: Zap, title: "Lightspark Global Account", desc: "Move money worldwide in under a second through Lightspark Grid switches. One account, every currency, instant settlement — fiat or crypto." },
+  { icon: AtSign, title: "UMA Money Address", desc: "Your portable Universal Money Address (e.g. $you@paydots.app). Receive payments from any UMA-compatible wallet, bank, or country — no IBANs required." },
+  { icon: Briefcase, title: "Global Payroll", desc: "Pay contractors and employees in 30+ currencies in seconds. Bulk runs, scheduled payouts, and per-employee UMA delivery — fully automated." },
+  { icon: Coins, title: "Multi-Currency Custodian Wallet", desc: "Hold NGN, USDC, EUR, GBP, and stablecoins. Instant cross-currency swaps via your Lightspark Global Account. Paydots securely manages your funds." },
   { icon: CreditCard, title: "Virtual & Physical Cards", desc: "Issue virtual cards instantly or order a physical card. Spend your balance anywhere Visa is accepted." },
-  { icon: Globe, title: "Cross-Border Payments", desc: "Send and receive money across different countries with near-zero fees (0.1%). Powered by Stellar's fast settlement." },
+  { icon: Globe, title: "Cross-Border Payments", desc: "Send and receive money across countries with near-zero fees (0.1%). Powered by Lightspark Grid for instant, transparent FX." },
   { icon: TrendingUp, title: "Yield & Investment Plans", desc: "Invest in T-Bills, real estate, and fixed-dollar products through a licensed portfolio manager. Up to 18% APY." },
   { icon: Store, title: "Merchant Tools", desc: "Payment links, QR codes, invoices, and APIs. Settle in stablecoins or local currency." },
   { icon: Users, title: "Agent & Referral System", desc: "Earn commissions on deposits, withdrawals, and transactions. Build your own agent network." },
-  { icon: Landmark, title: "USD Receivable Account", desc: "Get a real US bank account number. Receive payments from clients, marketplaces, and freelancing platforms directly — no middlemen. Hold, convert, or spend your USD balance instantly." },
-  { icon: Send, title: "Instant Peer-to-Peer Transfers", desc: "Send money instantly to any other Paydots user using just their email, phone number, or username. No fees, no delays — perfect for splitting bills, paying friends, or settling debts." },
+  { icon: Landmark, title: "USD Receivable Account", desc: "Get a real US bank account number. Receive payments from clients, marketplaces, and freelancing platforms directly. Hold, convert, or spend USD instantly." },
+  { icon: Send, title: "Instant Peer-to-Peer Transfers", desc: "Send money instantly to any other Paydots user using their UMA, email, phone, or username. No fees, no delays." },
 ];
 
 export function Features() {
@@ -19,7 +25,7 @@ export function Features() {
         <div className="text-center max-w-2xl mx-auto mb-16">
           <div className="text-xs uppercase tracking-widest text-accent mb-3">Core Pillars</div>
           <h2 className="text-3xl md:text-5xl font-bold">Everything you need, <span className="text-gradient">in one wallet</span></h2>
-          <p className="mt-4 text-muted-foreground">A complete financial OS, custodian-grade and built on Stellar.</p>
+          <p className="mt-4 text-muted-foreground">A complete financial OS, custodian-grade and powered by your Lightspark Global Account.</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
